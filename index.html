@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stroke Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        .form-container h2 {
+            text-align: center;
+        }
+        .form-container label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .form-container input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: left;
+            font-size: 18px;
+            white-space: pre-wrap; /* Preserve JSON formatting */
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Stroke Prediction</h2>
+        <form id="predictionForm">
+            <label for="gender">Gender (0: Female, 1: Male, 2: Other):</label>
+            <input type="number" id="gender" name="gender" required min="0" max="2">
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+
+            <label for="hypertension">Hypertension (0: No, 1: Yes):</label>
+            <input type="number" id="hypertension" name="hypertension" required min="0" max="1">
+
+            <label for="heart_disease">Heart Disease (0: No, 1: Yes):</label>
+            <input type="number" id="heart_disease" name="heart_disease" required min="0" max="1">
+
+            <label for="ever_married">Ever Married (0: No, 1: Yes):</label>
+            <input type="number" id="ever_married" name="ever_married" required min="0" max="1">
+
+            <label for="work_type">Work Type (0: Govt, 1: Never Worked, 2: Private, 3: Self-employed, 4: Children):</label>
+            <input type="number" id="work_type" name="work_type" required min="0" max="4">
+
+            <label for="Residence_type">Residence Type (0: Rural, 1: Urban):</label>
+            <input type="number" id="Residence_type" name="Residence_type" required min="0" max="1">
+
+            <label for="avg_glucose_level">Average Glucose Level:</label>
+            <input type="number" id="avg_glucose_level" name="avg_glucose_level" required step="0.1">
+
+            <label for="bmi">BMI:</label>
+            <input type="number" id="bmi" name="bmi" required step="0.1">
+
+            <label for="smoking_status">Smoking Status (0: Unknown, 1: Formerly Smoked, 2: Never Smoked, 3: Smokes):</label>
+            <input type="number" id="smoking_status" name="smoking_status" required min="0" max="3">
+
+            <button type="submit">Predict</button>
+        </form>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        document.getElementById("predictionForm").addEventListener("submit", async function (event) {
+            event.preventDefault();
+
+            const formData = {
+                gender: parseInt(document.getElementById("gender").value),
+                age: parseInt(document.getElementById("age").value),
+                hypertension: parseInt(document.getElementById("hypertension").value),
+                heart_disease: parseInt(document.getElementById("heart_disease").value),
+                ever_married: parseInt(document.getElementById("ever_married").value),
+                work_type: parseInt(document.getElementById("work_type").value),
+                Residence_type: parseInt(document.getElementById("Residence_type").value),
+                avg_glucose_level: parseFloat(document.getElementById("avg_glucose_level").value),
+                bmi: parseFloat(document.getElementById("bmi").value),
+                smoking_status: parseInt(document.getElementById("smoking_status").value),
+            };
+
+            const response = await fetch("/predict", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
+
+            const result = await response.json();
+            document.getElementById("result").innerText = JSON.stringify(result, null, 2);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/Data%20Science/ML%20Flow/mlruns/600565210715119992/290b4977ab394385b86e84c32e25c112/artifacts
+end_time: 1741368601743
+entry_point_name: ''
+experiment_id: '600565210715119992'
+lifecycle_stage: active
+run_id: 290b4977ab394385b86e84c32e25c112
+run_name: LogisticRegression
+run_uuid: 290b4977ab394385b86e84c32e25c112
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741368587034
+status: 3
+tags: []
+user_id: En ty

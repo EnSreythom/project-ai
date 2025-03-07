@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/Data%20Science/ML%20Flow/mlruns/600565210715119992/8838addc85b64f329ad9dc6348bcf328/artifacts
+end_time: 1741368619178
+entry_point_name: ''
+experiment_id: '600565210715119992'
+lifecycle_stage: active
+run_id: 8838addc85b64f329ad9dc6348bcf328
+run_name: SupportVectorClassifier
+run_uuid: 8838addc85b64f329ad9dc6348bcf328
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741368602009
+status: 3
+tags: []
+user_id: En ty

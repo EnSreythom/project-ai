@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/Data%20Science/ML%20Flow/mlruns/600565210715119992/21c6c0c35c9e46d3a7094875b709aa55/artifacts
+end_time: 1741362404071
+entry_point_name: ''
+experiment_id: '600565210715119992'
+lifecycle_stage: active
+run_id: 21c6c0c35c9e46d3a7094875b709aa55
+run_name: RandomForestClassifier
+run_uuid: 21c6c0c35c9e46d3a7094875b709aa55
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741362377261
+status: 3
+tags: []
+user_id: En ty
